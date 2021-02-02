@@ -67,6 +67,7 @@ group :test do
   gem 'chromedriver-helper'
   gem 'shoulda-matchers', '~> 4.0'
   gem 'factory_bot_rails'
+  gem 'faker'
 end
 
 
