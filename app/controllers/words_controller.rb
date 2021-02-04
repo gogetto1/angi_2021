@@ -1,5 +1,5 @@
 class WordsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_word, only: [:show, :edit, :update, :destroy]
 
 
@@ -30,7 +30,6 @@ class WordsController < ApplicationController
   end
 
   def update
-
     if @word.update(word_params)
       redirect_to word_path(@word)
     else
