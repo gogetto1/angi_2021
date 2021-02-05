@@ -48,6 +48,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 4.0.2'
   gem 'rails-controller-testing'
   gem 'pry-rails'
+  gem 'pundit'
 end
 
 
