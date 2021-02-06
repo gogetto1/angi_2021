@@ -170,21 +170,14 @@ RSpec.describe WordsController, type: :controller do
     let(:params) do
       { id: word.id }
     end
-    let!(:word) { create(:word) }
-    
+    let!(:word) { create(:word, user: user) }
+    let(:user) { create(:user) } 
 
     context 'when user is signed in' do
-      let(:user) { create(:user) } 
-
       before do
         sign_in(user)
         subject
       end
-
-      let(:params) do
-        { id: word.id }
-      end
-      let!(:word) { create(:word) }
       
       it "assigns @word" do
         expect(assigns(:word)).to eq(word)
@@ -211,13 +204,12 @@ RSpec.describe WordsController, type: :controller do
   describe 'PUT update' do
     subject { put :update, params: params }
 
-    let!(:word) { create(:word, content: 'cat', language: language_1) }
+    let!(:word) { create(:word, user: user, content: 'cat', language: language_1) }
     let!(:language_1) { create(:language, name: 'English') }
     let!(:language_2) { create(:language, name: 'Polish') }
+    let(:user) { create(:user) } 
 
     context 'when user is signed in' do
-      let(:user) { create(:user) } 
-
       before do
         sign_in(user)
       end
@@ -272,11 +264,10 @@ RSpec.describe WordsController, type: :controller do
   describe 'DELETE destroy' do
     subject { delete :destroy, params: params }
 
-    let!(:word) { create(:word) }
-
+    let!(:word) { create(:word, user: user) }
+    let(:user) { create(:user) } 
     context 'when user is signed in' do
-      let(:user) { create(:user) } 
-
+      
       before do
         sign_in(user)
       end
@@ -292,23 +283,6 @@ RSpec.describe WordsController, type: :controller do
       end
     end
 
-    context 'when user is signed in' do
-      let(:user) { create(:user) } 
-
-      before do
-        sign_in(user)
-      end
-
-      context 'valid params' do
-        let(:params) do 
-          { id: word.id }
-        end
-
-        it 'deletes word' do
-          expect { subject }.to change(Word, :count).from(1).to(0)
-        end
-      end
-    end
     context 'when user is NOT signed in' do
       context 'valid params' do
         let(:params) do 
@@ -316,7 +290,7 @@ RSpec.describe WordsController, type: :controller do
         end
 
         it 'it does not delete word' do
-          expect { subject }.not_to change { word.reload.content }
+          expect { subject }.not_to change(Word, :count)
         end
       end
     end
