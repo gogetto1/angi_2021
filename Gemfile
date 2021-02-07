@@ -32,6 +32,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'haml-rails', '~> 2.0'
 gem 'language_list', '~> 1.2', '>= 1.2.1'
+gem 'kaminari'
+gem 'bootstrap4-kaminari-views'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
