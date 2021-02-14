@@ -34,6 +34,7 @@ gem 'haml-rails', '~> 2.0'
 gem 'language_list', '~> 1.2', '>= 1.2.1'
 gem 'kaminari'
 gem 'bootstrap4-kaminari-views'
+gem "nested_form"
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
