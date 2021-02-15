@@ -98,18 +98,18 @@ RSpec.describe WordsController, type: :controller do
 
         context 'when some translation is present' do
           let!(:language_2) { create(:language, :polish) }
-          let(:params) do 
+          let(:params) do
             { word: {
               content: 'cat',
               language_id: language_1.id,
               translations_attributes:
-                { 
+                {
                   '1613312564335' =>
-                    { 
+                    {
                       content: 'kot',
                       language_id: language_2.id,
                       _destroy: false
-                    }                 
+                    }
                 }
               }
             }
