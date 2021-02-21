@@ -2,4 +2,5 @@ Rails.application.routes.draw do
   devise_for :users
   root 'words#index'
   resources :words
+  resources :games, only: [:new, :create, :show]
 end
