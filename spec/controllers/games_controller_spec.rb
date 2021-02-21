@@ -36,6 +36,7 @@ RSpec.describe GamesController, type: :controller do
 
   describe 'GET show' do
     subject { get :show, params: params }
+
     context 'when user is signed in' do
       let(:user) { create(:user) } 
 
@@ -46,7 +47,7 @@ RSpec.describe GamesController, type: :controller do
       let(:params) do
         { id: game.id }
       end
-      let!(:game) { create(:game) }
+      let!(:game) { create(:game, user: user) }
       
       it "assigns @game" do
         subject
