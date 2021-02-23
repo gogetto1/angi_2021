@@ -1,3 +1,5 @@
+require 'rails_helper'
+
 describe GamePolicy do
   subject { described_class }
 

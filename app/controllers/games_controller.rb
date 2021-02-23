@@ -9,6 +9,8 @@ class GamesController < ApplicationController
   def show
     @game = Game.find(params[:id])
     authorize @game
+    @word = Words::RandomWord.new.call
+
   end
 
 end

@@ -1,3 +1,5 @@
+require 'rails_helper'
+
 describe WordPolicy do
   subject { described_class }
 
