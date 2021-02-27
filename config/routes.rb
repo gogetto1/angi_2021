@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   root 'words#index'
   resources :words
   resources :games, only: [:new, :create, :show]
+  resources :answers, only: [:create]
 end
