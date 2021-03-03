@@ -17,7 +17,10 @@ RSpec.describe Word, type: :model do
       .class_name('Translation')
     end 
     it do
-      is_expected.to have_many(:translations).through(:translations_association).source(:translated_word)
+      is_expected.to have_many(:translations)
+      .through(:translations_association)
+      .source(:translated_word)
+      .dependent(:destroy)
     end
     it do 
       is_expected.to have_many(:inverse_translations_association)
